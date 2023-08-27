@@ -3,11 +3,10 @@ package main;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
-import java.util.function.Function;
 
 public class BTree<T extends Comparable<T>> {
-    BTreeNode<T> root;
-    int maxDegree;
+    private BTreeNode<T> root;
+    private final int maxDegree;
     private final int maxKeys;
 
     public BTree(int maxDegree) {
@@ -18,6 +17,15 @@ public class BTree<T extends Comparable<T>> {
         this.maxDegree = maxDegree;
         this.maxKeys = maxDegree - 1;
         root = new BTreeNode<>(true, true);
+    }
+
+    public BTreeNode<T> getRoot() {
+        return this.root;
+    }
+
+
+    public int getMaxDegree() {
+        return this.maxDegree;
     }
 
     public boolean search(T value) {

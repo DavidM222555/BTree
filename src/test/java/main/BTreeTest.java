@@ -14,7 +14,7 @@ class BTreeTest {
         // that all children of a node are less than or greater than the corresponding
         // keys above them depending on orientation.
         Queue<BTreeNode<Integer>> queueOfNodes = new LinkedList<>();
-        queueOfNodes.add(btree.root);
+        queueOfNodes.add(btree.getRoot());
 
         // Test a given node, add its children to the queue, and so on until
         // the queue is exhausted
@@ -74,12 +74,12 @@ class BTreeTest {
 
     boolean validateMaxDegreeProperty(BTree<Integer> btree) {
         Queue<BTreeNode<Integer>> nodeQueue = new LinkedList<>();
-        nodeQueue.add(btree.root);
+        nodeQueue.add(btree.getRoot());
 
         while (!nodeQueue.isEmpty()) {
             var currentNode = nodeQueue.poll();
 
-            if (currentNode.children.size() > btree.maxDegree || currentNode.keys.size() > btree.maxDegree - 1) {
+            if (currentNode.children.size() > btree.getMaxDegree() || currentNode.keys.size() > btree.getMaxDegree() - 1) {
                 return false;
             }
         }
