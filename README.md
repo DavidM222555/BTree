@@ -3,7 +3,7 @@ Basic B-Tree implementation in Java. Supports insertion and search on items that
 In the tests suite I have three basic test cases (one of which consists of 100 seeded random tests) that test the search property and max-degree property for each node after a series of insertions. These tests are ran for every degree of B-Tree from 3 to 15.
 
 # Example
-```
+```java
 public class Main {
     public static void main(String[] args) {
         BTree<Integer> btree = new BTree<>(3);
